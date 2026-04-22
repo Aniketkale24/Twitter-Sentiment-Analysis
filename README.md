@@ -35,6 +35,6 @@ python main.py
 
 ## Important Note
 
-*The dataset is imbalanced and noisy. 
-*Traditional ML models like SVM rely on word frequency, so they sometimes misinterpret context like sarcasm or mixed sentiment.
-*So the model was biased toward the majority class.
+The dataset is imbalanced and noisy. 
+Traditional ML models like SVM rely on word frequency, so they sometimes misinterpret context like sarcasm or mixed sentiment.
+So the model was biased toward the majority class.
