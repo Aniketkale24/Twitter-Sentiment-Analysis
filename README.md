@@ -32,3 +32,9 @@ python main.py
 * Accuracy score
 * Classification report
 * Real-time prediction
+
+## Important Note
+
+*The dataset is imbalanced and noisy. 
+*Traditional ML models like SVM rely on word frequency, so they sometimes misinterpret context like sarcasm or mixed sentiment.
+*So the model was biased toward the majority class.
