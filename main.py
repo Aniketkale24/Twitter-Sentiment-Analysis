@@ -9,24 +9,23 @@ from sklearn.metrics import accuracy_score, classification_report
 # -------------------------------
 # 1. LOAD DATA
 # -------------------------------
-data = pd.read_csv("data/train_E6oV3lV.csv")
+data = pd.read_csv("data/train.csv")
+data = data.dropna(subset=['text'])
 
-# Keep only needed columns
-data = data[['tweet', 'label']]
-
-# Convert labels to text
-data['sentiment'] = data['label'].map({0: 'negative', 1: 'positive'})
+# keep only required columns
+data = data[['text', 'sentiment']]
 
 # -------------------------------
 # 2. PREPROCESS FUNCTION
 # -------------------------------
 def preprocess(text):
+    text = str(text)   # 🔥 IMPORTANT FIX
     text = text.lower()
     text = text.translate(str.maketrans('', '', string.punctuation))
     return text
 
 # Apply preprocessing
-data['cleaned'] = data['tweet'].apply(preprocess)
+data['cleaned'] = data['text'].apply(preprocess)
 
 # -------------------------------
 # 3. FEATURES & LABELS
@@ -73,4 +72,4 @@ while True:
     vect = vectorizer.transform([cleaned])
     prediction = model.predict(vect)
 
-    print("Sentiment:", prediction[0])
+    print("Predicted Sentiment:", prediction[0])
